@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> Signup</h1>
+<form action = "/vaildate" method="POST">
+    <label>
+        Username
+        <input type="text" name="user" value="{{user}}" /> 
+        <span style="color: red;">{{user_error}}</span>
+    </label>
+    <br>
+    <label>
+        Password
+        <input type="password" name="pass" />
+        <span style="color: red;">{{pass_error}}</span>
+    </label>
+    <br>
+    <label>
+        Verify Password
+        <input type="password" name="V_pass" />
+        <span style="color: red;">{{v_pass_error}}</span>
+    </label>
+    <br>
+    <label for="e-mail">
+        Email (optional)
+        <input type="text" name="e-mail" id="e-mail" />
+    </label>
+    <br>
+    <input type="submit" placeholder="Submit Query" />
+    
+</form>
+{% endblock %}
