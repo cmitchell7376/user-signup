@@ -5,25 +5,25 @@
 <form action = "/vaildate" method="POST">
     <label>
         Username
-        <input type="text" name="user" value="{{user}}" /> 
+        <input type="text" name="user" value="{{user}}" style="margin-left: 45px;" /> 
         <span style="color: red;">{{user_error}}</span>
     </label>
     <br>
     <label>
         Password
-        <input type="password" name="pass" />
+        <input type="password" name="pass" style="margin-left: 48px; margin-top: 5px;"/>
         <span style="color: red;">{{pass_error}}</span>
     </label>
     <br>
     <label>
         Verify Password
-        <input type="password" name="V_pass" />
+        <input type="password" name="V_pass" / style="margin-left: 3px; margin-top: 5px;">
         <span style="color: red;">{{v_pass_error}}</span>
     </label>
     <br>
-    <label for="e-mail">
+    <label>
         Email (optional)
-        <input type="text" name="e-mail" id="e-mail" />
+        <input type="text" name="e-mail" value="{{email}}" style="margin: 5px;" />
     </label>
     <br>
     <input type="submit" placeholder="Submit Query" />
