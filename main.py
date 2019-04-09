@@ -24,40 +24,37 @@ def vaildate():
     v_pass_error = ''
     email_error = ''
 
-
-    if len(username) < 3 or len(username) > 25:
+#username error vaildate
+    if len(username) < 3 or len(username) > 20:
         user_error = "That's not a vaild username"
         username = ''
-
-    if " " in username:
+    elif " " in username:
         user_error = "That's not a vaild username"
         username =''
-
-    if username == '':
+    elif username == '':
         user_error = "That's not a vaild username" 
 
-    if len(password) < 3 or len(password) > 25:
+#password error vaildate
+    if len(password) < 3 or len(password) > 20:
+        pass_error = "That's not a vaild password"
+    elif " " in password:
         pass_error = "That's not a vaild password"
 
-    if " " in password:
-        pass_error = "That's not a vaild password"
-        
+#checking password for match
     if vaild_pass != password:
         v_pass_error = "Password don't match"
 
-    if len(email) < 3 or len(email) > 20:
-        email_error = "That's not a vaild e-mail"
-        email = ''
-
-    if " " in email:
-        email_error = "That's not a vaild e-mail"
-        email =''
-
     if not is_email(email):
-        email_error = "That's not a vaild e-mail"
-        email =''
-
-    if not user_error and not pass_error and not v_pass_error:
+        email_error = "That's not a vaild email"
+        email = ''
+    elif len(email) < 3 or len(email) > 20:
+        email_error = "That's not a vaild email"
+        email = ''
+    elif " " in email:
+        email_error = "That's not a vaild email"
+        email = ''
+ 
+    if not user_error and not pass_error and not v_pass_error and not email_error:
         return render_template("vaildate.html", user = username)
 
     return render_template("index.html",user_error = user_error, 
