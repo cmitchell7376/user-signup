@@ -11,7 +11,6 @@ def is_email(mail):
     else:
         return False
 
-
 @app.route("/vaildate",methods=['POST'])
 def vaildate():
     username = request.form['user']
@@ -44,15 +43,16 @@ def vaildate():
     if vaild_pass != password:
         v_pass_error = "Password don't match"
 
-    if not is_email(email):
-        email_error = "That's not a vaild email"
-        email = ''
-    elif len(email) < 3 or len(email) > 20:
-        email_error = "That's not a vaild email"
-        email = ''
-    elif " " in email:
-        email_error = "That's not a vaild email"
-        email = ''
+    if email != '':
+        if not is_email(email):
+            email_error = "That's not a vaild email"
+            email = ''
+        elif len(email) < 3 or len(email) > 20:
+            email_error = "That's not a vaild email"
+            email = ''
+        elif " " in email:
+            email_error = "That's not a vaild email"
+            email = ''
  
     if not user_error and not pass_error and not v_pass_error and not email_error:
         return render_template("vaildate.html", user = username)
